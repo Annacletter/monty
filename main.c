@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- *lines_check - This checks argument
- *@buffer: Place holder
- *@line_number: This counts the number of files 
- *Return: Always 0.
+ * lines_check - This checks argument
+ * @buffer: Placeholder
+ * @line_number: number of lines inside the file
+ * Return: Always 0.
  */
 
 char *lines_check(char *buffer, unsigned int line_number)
