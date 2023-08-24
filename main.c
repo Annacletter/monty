@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+
 #include "monty.h"
 
 /**
@@ -66,7 +68,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&buffer, &size, file) != EOF)
+	while (getline(&buffer, &size, file) != -1)
 	{
 		line_number++;
 		if (strlen(buffer) == 1 || strspn(buffer, " \t\n") == strlen(buffer))
@@ -74,7 +76,7 @@ int main(int argc, char *argv[])
 		command_f = lines_check(buffer, line_number);
 		if (command_f == NULL)
 			break;
-		functions_monty(&stack, command_f, line_number);
+		f_monty(&stack, command_f, line_number);
 	}
 	free(buffer);
 	free_malloc(stack);
